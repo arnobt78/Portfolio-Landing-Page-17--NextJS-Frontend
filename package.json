@@ -1,0 +1,56 @@
+{
+  "name": "portfolio-ui-17",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "eslint . --ext .js,.jsx,.ts,.tsx",
+    "generate-previews": "npx tsx scripts/generate-link-previews.ts",
+    "fix-previews": "npx tsx scripts/fix-failed-previews.ts"
+  },
+  "dependencies": {
+    "@codesandbox/sandpack-react": "^2.20.0",
+    "@headlessui/react": "^2.2.9",
+    "@supabase/ssr": "^0.5.2",
+    "@supabase/supabase-js": "^2.95.3",
+    "clsx": "^2.1.1",
+    "framer-motion": "^11.18.2",
+    "geist": "^1.7.0",
+    "next": "^15.5.12",
+    "next-mdx-remote": "^4.4.1",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "reading-duration": "^1.1.2",
+    "rehype-raw": "^7.0.0",
+    "sugar-high": "^0.6.1",
+    "swr": "^2.4.0",
+    "tailwind-merge": "^2.6.1",
+    "usehooks-ts": "^3.1.1",
+    "uuid": "^11.1.0"
+  },
+  "devDependencies": {
+    "@tailwindcss/typography": "^0.5.19",
+    "@types/node": "^20.19.33",
+    "@types/react": "^18.3.28",
+    "@types/react-dom": "^18.3.7",
+    "@types/uuid": "^10.0.0",
+    "autoprefixer": "^10.4.24",
+    "eslint": "^8.57.1",
+    "eslint-config-next": "^15.5.12",
+    "playwright": "^1.58.2",
+    "postcss": "^8.5.6",
+    "prettier": "^3.8.1",
+    "prettier-plugin-tailwindcss": "^0.6.14",
+    "tailwindcss": "^3.4.19",
+    "tailwindcss-full-bleed": "^2.0.2",
+    "tsx": "^4.21.0",
+    "typescript": "^5.9.3",
+    "velite": "^0.3.1"
+  },
+  "overrides": {
+    "minimatch": "^10.2.1",
+    "glob": "^10.4.5"
+  }
+}

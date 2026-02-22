@@ -1,0 +1,34 @@
+{
+  "extends": "next/core-web-vitals",
+  "overrides": [
+    {
+      "files": [
+        "app/about/page.tsx",
+        "app/api/og/route.tsx",
+        "app/changelog/page.tsx",
+        "app/components/AboutMeBento.tsx",
+        "app/components/AnimatedMobilePhotos.tsx",
+        "app/components/CommunityWallCard.tsx",
+        "app/components/ConnectionsBento.tsx",
+        "app/components/CurrentlyReadingBento.tsx",
+        "app/components/FeaturedBlogCard.tsx",
+        "app/components/Footer.tsx",
+        "app/components/LinkPreview/LinkPreviewImage.tsx",
+        "app/components/LinkPreview/LinkPreviewPopover.tsx",
+        "app/components/Navbar.tsx",
+        "app/components/ScrapbookBento.tsx",
+        "app/components/SpeakingBento.tsx",
+        "app/components/ToolboxBento.tsx",
+        "app/components/mdx-content.tsx",
+        "app/components/mdx.tsx",
+        "app/connections/page.tsx",
+        "app/projects/page.tsx",
+        "app/speaking/page.tsx",
+        "app/toolbox/page.tsx"
+      ],
+      "rules": {
+        "@next/next/no-img-element": "off"
+      }
+    }
+  ]
+}
