@@ -1,4 +1,10 @@
+import type { Metadata } from "next";
 import { GridWrapper } from "@/app/components/GridWrapper";
+
+export const metadata: Metadata = {
+  title: "Projects",
+  description: "A collection of John Doe's favorite works and projects.",
+};
 
 interface Project {
   title: string;

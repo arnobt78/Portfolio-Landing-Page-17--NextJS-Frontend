@@ -1,13 +1,18 @@
+import type { Metadata } from "next";
 import { BorderCard } from "@/app/components/BorderCard";
 import { NewsletterSignUp } from "@/app/components/NewsletterSignUp";
 import { hardwareData, softwareData } from "app/data/toolbox";
 import { HorizontalLine } from "@/app/components/HorizontalLine";
 import { GridWrapper } from "@/app/components/GridWrapper";
 
+export const metadata: Metadata = {
+  title: "Toolbox",
+  description: "Hardware and software in John Doe's toolbox. Dev setup and tools.",
+};
+
 export default function ToolboxPage() {
   return (
     <div className="relative">
-      <title>Toolbox | John Doe</title>
       <span className="absolute left-1/2 top-20 -translate-y-1/2 translate-x-1/2">
         <HorizontalLine />
       </span>

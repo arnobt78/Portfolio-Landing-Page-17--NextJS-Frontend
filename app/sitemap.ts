@@ -2,6 +2,7 @@ import type { MetadataRoute } from "next";
 import { fetchAndSortBlogPosts } from "@/app/lib/utils";
 import { siteMetadata } from "@/app/data/siteMetadata";
 
+/** Generates /sitemap.xml: homepage, /about, /blog, and all blog post URLs with lastModified and priority. */
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const posts = fetchAndSortBlogPosts();
   const blogUrls = posts.map((post) => ({

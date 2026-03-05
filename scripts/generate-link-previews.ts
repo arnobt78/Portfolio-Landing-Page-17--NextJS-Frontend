@@ -8,6 +8,11 @@ import type {
   LinkPreviewConfig,
 } from "../app/lib/link-previews/types";
 
+/**
+ * Generates link preview screenshots for external URLs found in content (blog/changelog MDX).
+ * Writes public/previews/*.jpg and public/previews/manifest.json. Run via: npm run generate-previews.
+ * hashUrl() must stay in sync with app/components/mdx.tsx for lookup. Excludes social/media domains.
+ */
 // Configuration
 const config: LinkPreviewConfig & { contentHashPath: string } = {
   contentHashPath: "public/previews/.content-hash",

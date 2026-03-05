@@ -1,5 +1,9 @@
 "use server";
 
+/**
+ * Server actions: run on the server when called from client components.
+ * Used for article view count, reactions (Supabase), newsletter (Loops), and Spotify "Now Playing".
+ */
 import { createSupabaseAdminClient } from "../lib/supabase/server";
 import { revalidatePath } from "next/cache";
 import { cookies } from "next/headers";
@@ -19,6 +23,7 @@ type CreateContactResponse = {
   error?: string;
 };
 
+/** Increment view count for a blog post in Supabase article_views (upsert by slug). Returns new count or 0 on error. */
 export async function incrementViewCount(slug: string) {
   const supabase = await createSupabaseAdminClient();
 
@@ -58,6 +63,7 @@ export async function incrementViewCount(slug: string) {
   }
 }
 
+/** Fetch reaction counts per type for an article from article_reactions table. */
 // Get all reaction counts for an article
 export async function getArticleReactions(slug: string) {
   const supabase = await createSupabaseAdminClient();
@@ -88,6 +94,7 @@ export async function getArticleReactions(slug: string) {
   }
 }
 
+/** Read which reaction types the user has already given for this article (stored in cookie). */
 // Get user's reactions for an article from cookie
 export async function getUserReactions(slug: string) {
   const cookieStore = await cookies();
@@ -102,6 +109,7 @@ export async function getUserReactions(slug: string) {
   }
 }
 
+/** Add or remove a reaction for an article. Uses visitor_id cookie and article_reactions_${slug} cookie; updates Supabase and revalidates the blog page. */
 // Toggle reaction (add or remove)
 export async function toggleReaction(slug: string, reactionType: ReactionType) {
   const supabase = await createSupabaseAdminClient();
@@ -223,6 +231,7 @@ export async function toggleReaction(slug: string, reactionType: ReactionType) {
   }
 }
 
+/** Add email to Loops.so (newsletter). Honeypot: if set, assume bot and return success without calling API. */
 export async function createContact(
   email: string,
   honeypot?: string
@@ -256,6 +265,7 @@ export async function createContact(
   }
 }
 
+/** Fetches "Now Playing" from Spotify (via db/spotify). Used by CurrentlyPlayingBento. */
 export async function getCurrentlyPlaying(): Promise<CurrentlyPlaying | null> {
   try {
     const result = await getSpotifyCurrentlyPlaying();

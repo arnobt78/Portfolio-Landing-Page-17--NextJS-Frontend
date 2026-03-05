@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import { NewsletterSignUp } from "@/app/components/NewsletterSignUp";
 
 import { GridWrapper } from "@/app/components/GridWrapper";
@@ -8,13 +9,18 @@ import { fetchAndSortBlogPosts } from "@/app/lib/utils";
 import { FeaturedBlogCard } from "@/app/components/FeaturedBlogCard";
 import clsx from "clsx";
 
+export const metadata: Metadata = {
+  title: "Links",
+  description:
+    "John Doe - front-end developer, team lead, blogger and international speaker. Quick links and featured articles.",
+};
+
 export default function LinksPage() {
   const allPublishedBlogPosts = fetchAndSortBlogPosts();
   const featuredArticles = allPublishedBlogPosts.slice(0, 4);
 
   return (
     <div className="relative">
-      <title>Links | John Doe</title>
       <div className="space-y-12">
         <ProfilePicture />
         <GridWrapper>

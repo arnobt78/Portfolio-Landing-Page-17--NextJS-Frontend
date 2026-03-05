@@ -1,6 +1,11 @@
+/**
+ * Stats derived only from Velite content (no API or DB). Used on /stats for
+ * total articles, word count, reading time, category breakdown, changelog count.
+ */
 import { posts, changelogItems } from "#site/content";
 import type { BuildTimeStats, CategoryCount } from "./types";
 
+/** Approximate word count from MDX body; strips tags and code blocks. */
 function estimateWordCount(mdxCode: string): number {
   // Strip HTML/JSX tags and code blocks
   const stripped = mdxCode
@@ -14,6 +19,7 @@ function estimateWordCount(mdxCode: string): number {
   return stripped.split(/\s+/).filter((word) => word.length > 0).length;
 }
 
+/** Synchronous; runs at build/request time. No caching (data is from static content). */
 export function getBuildTimeStats(): BuildTimeStats {
   const publishedPosts = posts.filter((post) => !post.draft);
   const publishedChangelog = changelogItems.filter((item) => !item.draft);

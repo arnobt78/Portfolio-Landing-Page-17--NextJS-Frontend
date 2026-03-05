@@ -11,8 +11,8 @@ type Connection = {
 };
 
 export const metadata: Metadata = {
-  title: "Connections | Your App Name",
-  description: "Manage your connections and network",
+  title: "Connections",
+  description: "Manage your connections and network. John Doe's Portfolio.",
 };
 
 const connections: Connection[] = [

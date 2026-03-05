@@ -5,6 +5,10 @@ import path from "path";
 
 export const runtime = "nodejs";
 
+/**
+ * Dynamic OG image for blog posts. Query: title, summary (optional), image (filename in public/blog/).
+ * Composes blog image + overlay (braydoncoyer_og_overlay.png) and title text. Used in blog post metadata.
+ */
 export async function GET(request: NextRequest) {
   try {
     const { searchParams } = new URL(request.url);

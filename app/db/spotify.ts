@@ -1,5 +1,10 @@
 import "server-only";
 
+/**
+ * Spotify "Now Playing" integration. Uses refresh token to get access token,
+ * then fetches /v1/me/player/currently-playing. Requires SPOTIFY_CLIENT_ID,
+ * SPOTIFY_CLIENT_SECRET, SPOTIFY_REFRESH_TOKEN in env.
+ */
 export type CurrentlyPlaying = {
   albumImageUrl: string;
   albumName: string;
@@ -11,6 +16,7 @@ export type CurrentlyPlaying = {
   title: string;
 };
 
+/** Refresh token flow; used internally before calling the Now Playing API. */
 // Get the access token from Spotify
 async function getAccessToken() {
   const basic = Buffer.from(

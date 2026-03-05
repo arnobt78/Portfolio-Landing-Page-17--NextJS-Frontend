@@ -1,5 +1,9 @@
 "use client";
 
+/**
+ * Site header: desktop nav (logo + links), mobile nav (drawer). Uses Headless UI
+ * for mobile dialog. Active link styling via usePathname().
+ */
 import Link from "next/link";
 import { SocialPill } from "./SocialPill";
 import { usePathname } from "next/navigation";

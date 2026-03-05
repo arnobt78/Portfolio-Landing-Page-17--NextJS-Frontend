@@ -2,6 +2,10 @@ import { cookies } from "next/headers";
 import { NextResponse } from "next/server";
 import { type CookieOptions, createServerClient } from "@supabase/ssr";
 
+/**
+ * OAuth callback: exchanges code for Supabase session and redirects.
+ * Query: code (from provider), next (optional redirect path). Requires Supabase env.
+ */
 export async function GET(request: Request) {
   const { searchParams, origin } = new URL(request.url);
   const code = searchParams.get("code");

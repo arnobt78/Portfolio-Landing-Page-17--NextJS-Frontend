@@ -1,5 +1,6 @@
 import clsx from "clsx";
 
+/** Wrapper for page sections: full width with top/bottom border (before/after pseudo-elements). Reuse for consistent layout. */
 export function GridWrapper({
   children,
   className,

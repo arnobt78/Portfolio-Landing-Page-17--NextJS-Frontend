@@ -1,3 +1,7 @@
+/**
+ * Site footer: link groups (General, Specifics, Extra), social pills, logo.
+ * Link list is static; update footerSections to change.
+ */
 import Link from "next/link";
 import { SocialPill } from "./SocialPill";
 import { GridWrapper } from "./GridWrapper";

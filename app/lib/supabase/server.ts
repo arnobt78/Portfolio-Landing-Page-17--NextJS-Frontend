@@ -1,5 +1,9 @@
 "use server";
 
+/**
+ * Supabase clients for server context. When env is missing, placeholders are used
+ * so the app still runs (e.g. demo deploy); actual auth/DB calls will fail gracefully.
+ */
 import { createServerClient, type CookieOptions, createBrowserClient } from "@supabase/ssr";
 import { createClient } from "@supabase/supabase-js";
 import { cookies } from "next/headers";
@@ -7,6 +11,7 @@ import { cookies } from "next/headers";
 const PLACEHOLDER_URL = "https://placeholder.supabase.co";
 const PLACEHOLDER_ANON = "placeholder-anon-key";
 
+/** Cookie-based client for Server Components / Route Handlers; respects user session. */
 export default async function createSupabaseServerClient() {
   const cookieStore = await cookies();
   const url = process.env.NEXT_PUBLIC_SUPABASE_URL || PLACEHOLDER_URL;

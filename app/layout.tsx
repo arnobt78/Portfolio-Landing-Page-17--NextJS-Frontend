@@ -9,15 +9,46 @@ import { GeistMono } from "geist/font/mono";
 import { GeistSans } from "geist/font/sans";
 import Script from "next/script";
 
+/**
+ * Root layout: wraps every page. Defines global metadata (SEO, OG, Twitter),
+ * fonts (Geist), and the main shell (Navbar, content area with decorative
+ * side stripes, Footer). Third-party scripts load after interactive.
+ */
 export const metadata: Metadata = {
-  metadataBase: new URL(siteMetadata.siteUrl),
+  title: {
+    default: siteMetadata.title,
+    template: `%s | ${siteMetadata.title}`,
+  },
   description: siteMetadata.description,
+  metadataBase: new URL(siteMetadata.siteUrl),
+  authors: [
+    {
+      name: siteMetadata.authorName,
+      url: siteMetadata.authorUrl,
+    },
+  ],
+  creator: siteMetadata.authorName,
+  publisher: siteMetadata.authorName,
+  keywords: [
+    "portfolio",
+    "John Doe",
+    "front-end engineer",
+    "blog",
+    "developer",
+    "Next.js",
+    "Tailwind CSS",
+    "speaker",
+  ],
   openGraph: {
+    type: "website",
+    locale: siteMetadata.locale,
+    url: siteMetadata.siteUrl,
     title: siteMetadata.title,
     description: siteMetadata.description,
+    siteName: siteMetadata.title,
     images: [
       {
-        url: "/braydon_coyer_blogfolio_og.jpg", // Your default OG image
+        url: "/braydon_coyer_blogfolio_og.jpg",
         width: 1200,
         height: 630,
         alt: siteMetadata.title,
@@ -29,6 +60,13 @@ export const metadata: Metadata = {
     title: siteMetadata.title,
     description: siteMetadata.description,
     images: ["/braydon_coyer_blogfolio_og.jpg"],
+  },
+  icons: {
+    icon: "/bcoyerlogo_dark.svg",
+  },
+  robots: {
+    index: true,
+    follow: true,
   },
 };
 

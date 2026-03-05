@@ -21,6 +21,7 @@ import { LighthouseScoreCard } from "@/app/components/stats/LighthouseScoreCard"
 import { GridWrapper } from "@/app/components/GridWrapper";
 import { StatsPageWrapper } from "@/app/components/stats/StatsPageWrapper";
 
+/** Stats dashboard: blog metrics, engagement (views/reactions), GitHub, optional Lighthouse. Data from build-time, Supabase, and external APIs. */
 export const metadata: Metadata = {
   title: "Stats | John Doe",
   description:

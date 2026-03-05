@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import {
   extractUniqueBlogCategories,
   fetchAndSortBlogPosts,
@@ -5,6 +6,19 @@ import {
 import { NewsletterSignUp } from "@/app/components/NewsletterSignUp";
 import { BlogPostList } from "@/app/components/BlogPostList";
 import { CategorySelect } from "@/app/components/CategorySelect";
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ category: string }>;
+}): Promise<Metadata> {
+  const category = (await params).category ?? "";
+  const title = category ? `${category} Articles` : "Blog";
+  return {
+    title: title.charAt(0).toUpperCase() + title.slice(1),
+    description: `Blog articles about ${category}. John Doe's Portfolio.`,
+  };
+}
 
 export default async function CategoryPage({
   params,
@@ -31,7 +45,6 @@ export default async function CategoryPage({
 
   return (
     <div className="mt-[100px] w-full space-y-[80px]">
-      <title>{category} Articles</title>
       <h1 className="mx-auto max-w-2xl text-center text-4xl font-medium leading-tight tracking-tighter text-text-primary md:text-6xl md:leading-[64px]">
         {`Articles about ${category || "Unknown Category"}`}
       </h1>

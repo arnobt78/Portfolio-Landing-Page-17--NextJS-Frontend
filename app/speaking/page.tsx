@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import { ShadowBox } from "@/app/components/ShadowBox";
 import { NewsletterSignUp } from "@/app/components/NewsletterSignUp";
 import { Button } from "@/app/components/Button";
@@ -8,6 +9,12 @@ import { AnimatedMobilePhotos } from "@/app/components/AnimatedMobilePhotos";
 import { PageSection } from "../components/PageSection";
 import { ContentLink } from "../components/ContentLink";
 import { VideoCard } from "../components/VideoCard";
+
+export const metadata: Metadata = {
+  title: "Speaking",
+  description:
+    "Talks and presentations by John Doe. Conference talks, workshops, and videos.",
+};
 
 interface Talk {
   title: string;
@@ -83,7 +90,6 @@ const talksAndPresentations: Talk[] = [
 export default function SpeakingPage() {
   return (
     <div className="relative">
-      <title>Speaking | John Doe</title>
       <div className="relative space-y-16">
         <GridWrapper>
           <h1 className="max-w-3/5 mx-auto mt-16 text-balance text-center text-4xl font-medium leading-tight tracking-tighter text-text-primary md:text-6xl md:leading-[64px]">

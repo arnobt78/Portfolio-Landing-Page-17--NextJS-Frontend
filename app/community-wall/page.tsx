@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import { CommunityWallModal } from "@/app/components/CommunityWallModal";
 import createSupabaseServerClient from "@/app/lib/supabase/server";
@@ -5,6 +6,13 @@ import { InfiniteCanvas } from "@/app/components/InfiniteCanvas";
 import { CommunityWallCard } from "@/app/components/CommunityWallCard";
 import { GridWrapper } from "../components/GridWrapper";
 import { Button } from "../components/Button";
+
+/** Community wall: list of messages from Supabase; modal for sign-in/post when ?show=true. */
+export const metadata: Metadata = {
+  title: "Community Wall",
+  description:
+    "Leave a message, share your thoughts, or say hello on the community wall.",
+};
 
 type SearchParamProps = {
   searchParams: Promise<{ show: string }>;
@@ -24,7 +32,6 @@ export default async function Page({ searchParams }: SearchParamProps) {
 
   return (
     <>
-      <title>Community Wall | John Doe</title>
       {show ? <CommunityWallModal /> : null}
 
       {/* Page Header */}

@@ -1,5 +1,9 @@
 "use client";
 
+/**
+ * Newsletter signup form: calls createContact (Loops.so) server action. Includes
+ * honeypot (website) to reduce bot signups. Optional title, description, buttonText.
+ */
 import { useState, FormEvent } from "react";
 import { motion } from "framer-motion";
 import { GridWrapper } from "./GridWrapper";

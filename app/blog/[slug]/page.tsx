@@ -17,6 +17,7 @@ import { Metadata, ResolvingMetadata } from "next";
 import { AudioPlayer } from "@/app/components/AudioPlayer";
 import { TableOfContents } from "@/app/components/TableOfContents";
 
+/** Single blog post page: MDX body, TOC, view counter, reactions, related posts. generateMetadata sets OG image via /api/og. */
 interface BlogPageProps {
   params: Promise<{
     slug: string;
@@ -56,6 +57,7 @@ function formatDate(date: string) {
   return `${fullDate} (${formattedDate})`;
 }
 
+/** Resolves slug from URL to post from Velite content; calls notFound() if missing. */
 async function getPostFromParams(params: BlogPageProps["params"]) {
   const { slug } = await params;
   const post = posts.find((post) => post.slug === slug);

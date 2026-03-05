@@ -1,3 +1,9 @@
+/**
+ * Velite config: builds blog and changelog from content/*.mdx at build time.
+ * Outputs JSON data to .velite/ and assets to public/static/. Import content
+ * in app code via #site/content (e.g. posts, changelogItems). rehypeRaw allows
+ * raw HTML inside MDX for custom components.
+ */
 import { defineConfig, defineCollection, s } from "velite";
 import rehypeRaw from "rehype-raw";
 import {
@@ -5,6 +11,7 @@ import {
   extractHeadingsFromMdx,
 } from "./app/lib/toc-utils";
 
+/** Adds slugAsParams (path segment) to any collection item with slug. */
 const computedFields = <T extends { slug: string }>(data: T) => ({
   ...data,
   slugAsParams: data.slug.split("/").slice(1).join("/"),
@@ -57,6 +64,7 @@ export const changelogItems = defineCollection({
     .transform(computedFields),
 });
 
+/** Root for content is "content" (so blog/*.mdx = content/blog/*.mdx). */
 export default defineConfig({
   root: "content",
   output: {

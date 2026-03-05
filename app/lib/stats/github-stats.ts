@@ -1,11 +1,16 @@
 "use server";
 
+/**
+ * Fetches GitHub repo stats (stars, forks, commits) and contribution calendar.
+ * Cached 24h via unstable_cache. Without GITHUB_TOKEN or with placeholder token, returns zeros.
+ */
 import { unstable_cache } from "next/cache";
 import type { GitHubStats, ContributionData } from "./types";
 
 const GITHUB_REPO = "braydoncoyer/braydoncoyer.dev";
 const GITHUB_USERNAME = "braydoncoyer";
 
+/** Fetches last 365 days of contribution calendar via GitHub GraphQL API. */
 async function fetchContributions(token: string): Promise<ContributionData | null> {
   // Calculate rolling 365-day window ending today
   const today = new Date();
@@ -66,9 +71,11 @@ async function fetchContributions(token: string): Promise<ContributionData | nul
   }
 }
 
+/** Avoid calling GitHub API with dummy env values (no 401 in build log). */
 const isPlaceholderToken = (t: string) =>
   !t || t.includes("example") || t.startsWith("placeholder");
 
+/** Cached 24h. Returns stars, forks, commits, and optional contribution graph for stats page. */
 export const getGitHubStats = unstable_cache(
   async (): Promise<GitHubStats> => {
     const token = process.env.GITHUB_TOKEN;

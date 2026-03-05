@@ -1,5 +1,9 @@
 "use server";
 
+/**
+ * Stats from Supabase: article_views (view counts) and article_reactions.
+ * Cached; used on /stats for total views, reaction breakdown, top viewed/reacted articles, community wall count.
+ */
 import { unstable_cache } from "next/cache";
 import { createSupabaseAdminClient } from "../supabase/server";
 import { posts } from "#site/content";
@@ -12,6 +16,7 @@ const VALID_REACTIONS: ReactionType[] = [
   "insightful",
 ];
 
+/** Cached. Requires Supabase env and article_views / article_reactions tables. */
 export const getServerStats = unstable_cache(
   async (): Promise<ServerStats> => {
     const supabase = await createSupabaseAdminClient();

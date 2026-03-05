@@ -3,6 +3,8 @@ import { unstable_noStore as noStore } from "next/cache";
 import { notFound } from "next/navigation";
 import { ClassValue, clsx } from "clsx";
 import { twMerge } from "tailwind-merge";
+
+/** Human-readable date: "January 15, 2025 (1mo ago)". noStore() opts out of static caching. */
 export const formatDate = (date: string) => {
   noStore();
   let currentDate = new Date();
@@ -36,6 +38,7 @@ export const formatDate = (date: string) => {
   return `${fullDate} (${formattedDate})`;
 };
 
+/** Returns "Good morning!" / "Good afternoon!" / "Good evening!" based on current hour. */
 export const getTimeOfDayGreeting = () => {
   const now = new Date();
   const hours = now.getHours();
@@ -49,12 +52,15 @@ export const getTimeOfDayGreeting = () => {
   }
 };
 
+/** Simple classNames helper: filters falsy and joins. */
 export const cx = (...classes) => classes.filter(Boolean).join(" ");
 
+/** Merges Tailwind classes with clsx; later classes override. Use for conditional styling. */
 export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs));
 }
 
+/** All non-draft changelog items, newest first. Uses sync Velite data. */
 export function fetchAndSortChangelogEntrees(): Changelog[] {
   try {
     const allChangelogItems = changelogItems;
@@ -69,6 +75,7 @@ export function fetchAndSortChangelogEntrees(): Changelog[] {
   }
 }
 
+/** All non-draft blog posts, newest first. From Velite #site/content. */
 export function fetchAndSortBlogPosts(): Blog[] {
   try {
     const allPosts = posts; // Assuming 'posts' is a promise or async call
@@ -83,6 +90,7 @@ export function fetchAndSortBlogPosts(): Blog[] {
   }
 }
 
+/** Related posts by shared categories; fills with remaining posts if needed. Used on blog post page. */
 export function getRelatedBlogPosts(
   currentPost: Blog,
   maxResults: number = 3,
@@ -119,6 +127,7 @@ export function getRelatedBlogPosts(
   return [...sortedByRelevance, ...remainingPosts].slice(0, maxResults);
 }
 
+/** Async version: changelog items sorted by date (newest first), drafts excluded. */
 export async function fetchAndSortChangelogPosts(): Promise<Changelog[]> {
   try {
     const allChangelogItems = await changelogItems;
@@ -133,6 +142,7 @@ export async function fetchAndSortChangelogPosts(): Promise<Changelog[]> {
   }
 }
 
+/** Unique category strings from all posts; used for blog category filter. */
 export function extractUniqueBlogCategories(posts: Blog[]): Set<string> {
   const categories = new Set<string>();
   posts.forEach((post) => {

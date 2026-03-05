@@ -1,6 +1,12 @@
 import { createServerClient, type CookieOptions } from "@supabase/ssr";
 import { NextResponse, type NextRequest } from "next/server";
 
+/**
+ * Middleware runs on every request (except static assets per matcher).
+ * 1) Returns 410 Gone for old/invalid URLs so search engines drop them.
+ * 2) When Supabase env is set, creates a Supabase client with cookie-based
+ *    session and calls getUser() to refresh auth state before the request continues.
+ */
 // URLs that should return 410 Gone (crawler errors, never existed)
 const GONE_URLS = [
   "/blog/themeContext",

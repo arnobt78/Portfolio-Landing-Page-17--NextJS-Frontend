@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import { NewsletterSignUp } from "@/app/components/NewsletterSignUp";
 import { HorizontalLine } from "@/app/components/HorizontalLine";
 import { getTimeOfDayGreeting } from "app/lib/utils";
@@ -6,19 +7,25 @@ import { CurrentlyPlayingBento } from "@/app/components/CurrentlyPlayingBento";
 import { ConnectionsBento } from "@/app/components/ConnectionsBento";
 import { ScrapbookBento } from "@/app/components/ScrapbookBento";
 import { ShadowBox } from "@/app/components/ShadowBox";
-import { Resume } from "app/components/Resume";
+import { Resume } from "@/app/components/Resume";
 import { StatsBento } from "@/app/components/StatsBento";
 import { CurrentlyReadingBento } from "@/app/components/CurrentlyReadingBento";
 import { GridWrapper } from "@/app/components/GridWrapper";
 import { AboutTrackPattern } from "@/app/components/AboutTrackPattern";
 import { Photo } from "@/app/components/Photo";
 
+/** About: greeting, bio, photo, bentos (Now Playing, Reading, Stats, Connections, etc.), resume. */
+export const metadata: Metadata = {
+  title: "About",
+  description:
+    "John Doe - creative frontend engineer. About me, experience, and what I'm up to.",
+};
+
 export default function AboutPage() {
   const timeOfDayGreeting = getTimeOfDayGreeting();
 
   return (
     <div className="relative mt-14">
-      <title>About | John Doe</title>
       <div className="relative space-y-10 md:space-y-16">
         {/* Title */}
         <GridWrapper className="space-y-12">

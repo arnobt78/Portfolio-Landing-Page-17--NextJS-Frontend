@@ -2,6 +2,7 @@ import * as Headless from "@headlessui/react";
 import { clsx } from "clsx";
 import { Link } from "./Link";
 
+/** Button with variants: primary, secondary, outline. Renders as Link when href is provided, else Headless Button. */
 const variants = {
   primary: clsx(
     "group relative isolate inline-flex items-center justify-center overflow-hidden text-left font-medium transition duration-300 ease-[cubic-bezier(0.4,0.36,0,1)]",

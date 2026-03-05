@@ -16,6 +16,7 @@ import { AnimatedMobilePhotos } from "./components/AnimatedMobilePhotos";
 import { GridWrapper } from "./components/GridWrapper";
 import clsx from "clsx";
 
+/** Home: hero, bento sections (changelog, speaking, community, calendar, featured posts, toolbox, connections, about), newsletter. */
 export default function Home() {
   const allPublishedBlogPosts = fetchAndSortBlogPosts();
   const featuredArticles = allPublishedBlogPosts.slice(0, 4);

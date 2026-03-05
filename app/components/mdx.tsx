@@ -1,4 +1,9 @@
 "use client";
+/**
+ * MDX renderer: takes Velite-compiled code string and renders with custom components
+ * (headings with anchors, code blocks with sugar-high, LinkPreview, callouts, etc.).
+ * useMDXComponent turns the code into a React component via Function + react/jsx-runtime.
+ */
 import React, { useState, useEffect } from "react";
 import * as runtime from "react/jsx-runtime";
 import { highlight } from "sugar-high";
@@ -553,11 +558,13 @@ const sharedComponents = {
   li: ListItem,
 };
 
+/** Compiles Velite MDX code string into a React component using react/jsx-runtime. */
 const useMDXComponent = (code: string) => {
   const fn = new Function(code);
   return fn({ ...runtime }).default;
 };
 
+/** Renders post.code (or changelog code) with sharedComponents + optional page-specific overrides. */
 export const MDXContent = ({ code, components, ...props }: MDXProps) => {
   const Component = useMDXComponent(code);
   return (

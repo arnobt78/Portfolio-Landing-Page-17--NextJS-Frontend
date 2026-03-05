@@ -1,5 +1,9 @@
 "use server";
 
+/**
+ * Fetches Lighthouse scores (performance, accessibility, best-practices, SEO) via
+ * Google PageSpeed Insights API. Optional PAGESPEED_API_KEY increases quota. Cached.
+ */
 import { unstable_cache } from "next/cache";
 import type { LighthouseScores, LighthouseStats } from "./types";
 
@@ -17,6 +21,7 @@ interface PageSpeedResponse {
   };
 }
 
+/** Calls PageSpeed API for one device strategy; returns category scores or null. */
 async function fetchLighthouseScores(
   strategy: "mobile" | "desktop"
 ): Promise<LighthouseScores | null> {

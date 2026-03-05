@@ -1,14 +1,19 @@
+import type { Metadata } from "next";
 import { MDXContent } from "@/app/components/mdx";
 import { NewsletterSignUp } from "@/app/components/NewsletterSignUp";
 import { fetchAndSortChangelogPosts } from "@/app/lib/utils";
 import { GridWrapper } from "@/app/components/GridWrapper";
+
+export const metadata: Metadata = {
+  title: "Changelog",
+  description: "What's new and exciting on the site. Product updates and improvements.",
+};
 
 export default async function ChangelogPage() {
   const allChangelogItems = await fetchAndSortChangelogPosts();
 
   return (
     <div className="w-full space-y-16">
-      <title>Changelog | John Doe</title>
       <div className="mx-auto text-balance pt-14 md:pt-16">
         <GridWrapper>
           <h1 className="mx-auto max-w-2xl text-center text-4xl font-medium leading-tight tracking-tighter text-text-primary md:text-6xl md:leading-[64px]">

@@ -2,6 +2,7 @@ import clsx from "clsx";
 import { incrementViewCount } from "../db/actions";
 import { createSupabaseAdminClient } from "../lib/supabase/server";
 
+/** Displays and optionally increments article view count (Supabase article_views). Server component. */
 export async function ViewCounter({
   slug,
   increment = true,
@@ -22,6 +23,7 @@ export async function ViewCounter({
   );
 }
 
+/** Reads view_count from article_views without incrementing (e.g. for display-only). */
 // Helper function to just get the count without incrementing
 async function getViewCount(slug: string) {
   const supabase = await createSupabaseAdminClient();
