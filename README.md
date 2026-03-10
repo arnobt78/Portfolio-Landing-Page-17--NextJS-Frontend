@@ -10,7 +10,17 @@ A full-featured **developer portfolio and blog** built with Next.js 15 (App Rout
 
 - **Live Demo:** [https://portfolio-ui-17.vercel.app/](https://portfolio-ui-17.vercel.app/)
 
----
+<img width="1625" height="945" alt="Screenshot 2026-03-10 at 12 19 26" src="https://github.com/user-attachments/assets/49258977-a0de-45e9-8c67-70db3f903eca" />
+<img width="1652" height="856" alt="Screenshot 2026-03-10 at 12 19 35" src="https://github.com/user-attachments/assets/8b877f17-70ed-4ecb-b7f8-0b0313a9673d" />
+<img width="1687" height="778" alt="Screenshot 2026-03-10 at 12 19 48" src="https://github.com/user-attachments/assets/d7fc43a6-1e9c-4ebd-8218-afa4d767ec11" />
+<img width="1569" height="947" alt="Screenshot 2026-03-10 at 12 20 02" src="https://github.com/user-attachments/assets/ffe706cb-3183-4a5c-b102-16153abb685b" />
+<img width="1664" height="940" alt="Screenshot 2026-03-10 at 12 20 15" src="https://github.com/user-attachments/assets/6cbe4782-6ff2-4c3b-855e-cab2bf274692" />
+<img width="1656" height="936" alt="Screenshot 2026-03-10 at 12 20 22" src="https://github.com/user-attachments/assets/7159677b-620e-4243-a6dc-63b356ffd44c" />
+<img width="1599" height="936" alt="Screenshot 2026-03-10 at 12 20 34" src="https://github.com/user-attachments/assets/5e27f50c-088a-45f9-b6d0-f461562caa29" />
+<img width="1626" height="804" alt="Screenshot 2026-03-10 at 12 20 45" src="https://github.com/user-attachments/assets/c5229fa6-dc57-4e69-9111-0e488a756ded" />
+<img width="1653" height="928" alt="Screenshot 2026-03-10 at 12 21 11" src="https://github.com/user-attachments/assets/cab124d1-9949-4498-9aeb-9fc0fcdef637" />
+<img width="1641" height="942" alt="Screenshot 2026-03-10 at 12 21 34" src="https://github.com/user-attachments/assets/50842eb7-7af9-4d20-acc6-5b3405f90ac0" />
+<img width="1635" height="943" alt="Screenshot 2026-03-10 at 12 21 46" src="https://github.com/user-attachments/assets/a3152971-d994-4fd8-bc8e-112a9563e26e" />
 
 ## Table of Contents
 
